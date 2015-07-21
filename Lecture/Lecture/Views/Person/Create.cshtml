@@ -1,0 +1,44 @@
+﻿@model List<Lecture.Models.Person>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Person</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+     
+        @for (int i = 0; i < 6; i++)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Person 1</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m[i].Name,new { @class = "form-control" })
+                </div>
+            </div>
+        }
+      
+        <input  type="email" name="EmailName" id="EmailId" value="fergie@aol.com"/><br />
+        @Html.TextBox("EmailName","fergie@aol.com", new { id = "EmailId", type = "email" })<br />
+        @Html.EditorFor(m=>m[0].Email)
+
+        @Html.EditorFor(m => m[0].IsAwesome)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
