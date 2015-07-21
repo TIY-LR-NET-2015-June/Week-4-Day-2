@@ -12,7 +12,7 @@ namespace Homework.Controllers
         // GET: Person
         public ActionResult Index()
         {
-            return View();
+            return View(Session["ClassMates"]);
         }
 
         // GET: Person/Details/5
@@ -34,7 +34,7 @@ namespace Homework.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                Session["ClassMates"] = peoples;
                 return RedirectToAction("Index");
             }
             catch
