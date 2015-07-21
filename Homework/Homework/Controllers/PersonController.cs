@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Homework.Controllers
 {
     public class PersonController : Controller
     {
+        public ActionResult AuthorizeMe(string ReturnUrl)
+        {
+            FormsAuthentication.SetAuthCookie("daniel", false);
+            return Redirect(ReturnUrl);
+        }
         // GET: Person
         public ActionResult Index()
         {
@@ -22,6 +28,7 @@ namespace Homework.Controllers
         }
 
         // GET: Person/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -29,6 +36,7 @@ namespace Homework.Controllers
 
         // POST: Person/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(List<Person> peoples)
         {
             try
