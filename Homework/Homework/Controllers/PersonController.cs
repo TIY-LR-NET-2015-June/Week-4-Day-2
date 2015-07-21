@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homework.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,29 +7,29 @@ using System.Web.Mvc;
 
 namespace Homework.Controllers
 {
-    public class SchoolController : Controller
+    public class PersonController : Controller
     {
-        // GET: School
+        // GET: Person
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: School/Details/5
+        // GET: Person/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: School/Create
+        // GET: Person/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: School/Create
+        // POST: Person/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(List<Person> peoples)
         {
             try
             {
@@ -42,13 +43,13 @@ namespace Homework.Controllers
             }
         }
 
-        // GET: School/Edit/5
+        // GET: Person/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: School/Edit/5
+        // POST: Person/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -64,13 +65,13 @@ namespace Homework.Controllers
             }
         }
 
-        // GET: School/Delete/5
+        // GET: Person/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: School/Delete/5
+        // POST: Person/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

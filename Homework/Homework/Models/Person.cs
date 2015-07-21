@@ -5,7 +5,9 @@ using System.Web;
 
 namespace Homework.Models
 {
-    public class School
+    public class Person
     {
+        public string Name { get; set; }
+        public int Age { get; set; }
     }
 }
