@@ -30,6 +30,7 @@ Homework
 4. Save the data from the page into a Session variable called "ClassMates"
 5. Create a page that displays the classmates you created
 
+To submit your homework, create a pull request on your cloned repo. Then create an Issue on the class repo and link to your pull request in that issue.
 
 ## Hard Mode
 Allowing the user to view the page that list classmates as a plain content or in a JSON format based on a "view" parameter passed to the page.
