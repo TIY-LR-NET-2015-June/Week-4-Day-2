@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models;
+using System.Web.Mvc.Html;
 
 namespace WebApplication1.Controllers
 {
@@ -19,7 +21,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
         // GET: People/Create
         public ActionResult Create()
         {
@@ -28,11 +29,13 @@ namespace WebApplication1.Controllers
 
         // POST: People/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(List<Persons> people)
         {
             try
             {
-                // TODO: Add insert logic here
+                List<Persons> peoples = (List<Persons>)Session["ClassMates"];
+                peoples.AddRange(people);
+                Session["ClassMates"] = peoples;
 
                 return RedirectToAction("Index");
             }
