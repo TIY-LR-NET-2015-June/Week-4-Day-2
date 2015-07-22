@@ -28,8 +28,6 @@ Homework
 
 To submit your homework, create a pull request on your cloned repo. Then create an Issue on the class repo and link to your pull request in that issue.
 
-## Hard Mode
-Allowing the user to view the page that list classmates as a plain content or in a JSON format based on a "view" parameter passed to the page.
 
 ##Nightmare Mode
-Authenticate the user by creating an auth cookie
+Authenticate the user by creating an auth cookie when 
