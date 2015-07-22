@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Persons
+﻿@model List<WebApplication1.Models.Persons>
 
 @{
     ViewBag.Title = "Index";
@@ -7,26 +7,32 @@
 <h2>Index</h2>
 
 <div>
-    <h4>Persons</h4>
+    <h4>Here is all of the people you have added!</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <table class="dl-horizontal">
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>*@
+        @if (Session["ClassMates"] != null)
+        {
+            foreach (var item in (List<WebApplication1.Models.Persons>)Session["ClassMates"])
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td></td>
+                </tr>
+            }
+        }
+    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-
-    </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |

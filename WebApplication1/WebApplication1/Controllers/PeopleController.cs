@@ -13,15 +13,19 @@ namespace WebApplication1.Controllers
         // GET: People
         public ActionResult Index()
         {
-            return View();
+            return View(Session["ClassMates"]);
         }
 
         // GET: People/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            List<Persons> peoples = (List<Persons>)Session["ClassMates"];
+
+            var person = peoples.First();
+            return View(person);
         }
-        // GET: People/Create
+        // GET: People/Create]
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -33,15 +37,18 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                List<Persons> peoples = (List<Persons>)Session["ClassMates"];
-                peoples.AddRange(people);
-                Session["ClassMates"] = peoples;
+                List<Persons> oldPeople = new List<Persons>();
+                if (Session["ClassMates"] != null)
+                    oldPeople = (List<Persons>)Session["ClassMates"];
+
+                oldPeople.AddRange(people);
+                Session["ClassMates"] = oldPeople;
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                throw new NotImplementedException();
             }
         }
 
@@ -63,7 +70,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 
