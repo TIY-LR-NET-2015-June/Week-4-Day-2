@@ -14,9 +14,8 @@ create a class that:
 Today
 -----
 1. Review Homework
-1. vanity urls
 2. More model bindingg!
-2. action results
+3. Session
 3. filters
 
 Homework
