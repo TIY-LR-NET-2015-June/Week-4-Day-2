@@ -10,10 +10,11 @@ namespace Homework.Controllers
     public class PersonController : Controller
         
     {
+        
         // GET: Person
         public ActionResult Index()
         {
-            return View();
+            return View(Session);
         }
 
         // GET: Person/Details/5
@@ -23,6 +24,7 @@ namespace Homework.Controllers
         }
 
         // GET: Person/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -34,6 +36,7 @@ namespace Homework.Controllers
         {
             try
             {
+                
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
