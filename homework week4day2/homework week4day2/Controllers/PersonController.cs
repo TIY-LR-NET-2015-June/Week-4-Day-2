@@ -9,12 +9,10 @@ namespace homework_week4day2.Controllers
 {
     public class PersonController : Controller
     {
-        List<Person> people = new List<Person>();
         // GET: Person
-        public ActionResult Index()
-        {
-            return View(people);
-        }
+
+       
+
         public ActionResult Create()
         {
             return View();
@@ -23,13 +21,20 @@ namespace homework_week4day2.Controllers
         [HttpPost]
         public ActionResult Create (Person person)
         {
-           
+
             people.Add(person);
-            
+            Session["Person"] = people;
+
                 // Todo: add insert logoc here
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
             
         }
+        public ActionResult Index()
+        {
+            return View(people);
+        }
+        List<Person> people = new List<Person>();
+        
     }
 
 }
