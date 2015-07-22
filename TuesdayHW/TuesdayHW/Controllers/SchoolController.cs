@@ -14,7 +14,7 @@ namespace TuesdayHW.Controllers
             // GET: Person
             public ActionResult Index()
             {
-                return View();
+                return View(Session["Classmates"]);
             }
 
             // GET: Person/Details/5
@@ -36,7 +36,7 @@ namespace TuesdayHW.Controllers
                 try
                 {
                     // TODO: Add insert logic here
-
+                    Session["Classmates"] = peoples;
                     return RedirectToAction("Index");
                 }
                 catch
