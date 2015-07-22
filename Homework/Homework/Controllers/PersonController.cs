@@ -10,11 +10,15 @@ namespace Homework.Controllers
     public class PersonController : Controller
         
     {
-        
+        public ActionResult Authorize(string returnURL)
+        {
+            System.Web.Security.FormsAuthentication.SetAuthCookie("Jason",false);
+            return Redirect(returnURL);
+        }
         // GET: Person
         public ActionResult Index()
         {
-            return View(Session);
+            return View(Session["listOfPeople"]);
         }
 
         // GET: Person/Details/5
@@ -36,9 +40,7 @@ namespace Homework.Controllers
         {
             try
             {
-                
-                // TODO: Add insert logic here
-
+                Session["listOfPeople"] = people;
                 return RedirectToAction("Index");
             }
             catch
