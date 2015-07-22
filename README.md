@@ -30,4 +30,4 @@ To submit your homework, create a pull request on your cloned repo. Then create 
 
 
 ##Nightmare Mode
-Authenticate the user by creating an auth cookie when 
+Authenticate the user by creating an auth cookie when they goto the page to create new classmates
